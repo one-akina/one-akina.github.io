@@ -20,21 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="索引（Index）是帮助MySql高效获取数据的数据结构，本质是排序好的快速查找数据结构">
+  <meta name="description" content="注解处理器先给出命令 1javac -processor ProcessorClassName1,ProcessorClassName2,...sourceFiles 编译器会定位源文件中的注解。每个注解处理器会以此执行，并得到它表示感兴趣的注解。如果某个注解处理器创建了一个新的源文件，那么上述过程将重复执行。如果某次处理循环没有再产生任何新的源文件，那么就编译所有源文件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql-索引">
-<meta property="og:url" content="http://example.com/2023/02/04/MySql-index/index.html">
+<meta property="og:title" content="源码级注解处理">
+<meta property="og:url" content="http://example.com/2023/02/16/annotation-processor/index.html">
 <meta property="og:site_name" content="huangshengbin">
-<meta property="og:description" content="索引（Index）是帮助MySql高效获取数据的数据结构，本质是排序好的快速查找数据结构">
+<meta property="og:description" content="注解处理器先给出命令 1javac -processor ProcessorClassName1,ProcessorClassName2,...sourceFiles 编译器会定位源文件中的注解。每个注解处理器会以此执行，并得到它表示感兴趣的注解。如果某个注解处理器创建了一个新的源文件，那么上述过程将重复执行。如果某次处理循环没有再产生任何新的源文件，那么就编译所有源文件。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-03T17:03:05.000Z">
-<meta property="article:modified_time" content="2023-02-19T07:13:27.104Z">
+<meta property="article:published_time" content="2023-02-16T13:13:13.000Z">
+<meta property="article:modified_time" content="2023-02-18T11:31:39.633Z">
 <meta property="article:author" content="黄盛斌">
-<meta property="article:tag" content="database">
-<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2023/02/04/MySql-index/">
+<link rel="canonical" href="http://example.com/2023/02/16/annotation-processor/">
 
 
 <script id="page-configurations">
@@ -47,7 +46,7 @@
   };
 </script>
 
-  <title>MySql-索引 | huangshengbin</title>
+  <title>源码级注解处理 | huangshengbin</title>
   
 
 
@@ -152,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/04/MySql-index/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/16/annotation-processor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +164,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          MySql-索引
+          源码级注解处理
         </h1>
 
         <div class="post-meta">
@@ -175,14 +174,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-02-04 01:03:05" itemprop="dateCreated datePublished" datetime="2023-02-04T01:03:05+08:00">2023-02-04</time>
+              <time title="创建时间：2023-02-16 21:13:13" itemprop="dateCreated datePublished" datetime="2023-02-16T21:13:13+08:00">2023-02-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-19 15:13:27" itemprop="dateModified" datetime="2023-02-19T15:13:27+08:00">2023-02-19</time>
+                <time title="修改时间：2023-02-18 19:31:39" itemprop="dateModified" datetime="2023-02-18T19:31:39+08:00">2023-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -190,7 +189,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/database/" itemprop="url" rel="index"><span itemprop="name">database</span></a>
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
                 </span>
             </span>
 
@@ -205,23 +204,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>索引（Index）是帮助MySql高效获取数据的数据结构，本质是排序好的快速查找数据结构</p>
+        <h2 id="注解处理器"><a href="#注解处理器" class="headerlink" title="注解处理器"></a>注解处理器</h2><p>先给出命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac -processor ProcessorClassName1,ProcessorClassName2,...sourceFiles</span><br></pre></td></tr></table></figure>
+<p>编译器会定位源文件中的注解。每个注解处理器会以此执行，并得到它表示感兴趣的注解。<br>如果某个注解处理器创建了一个新的源文件，那么上述过程将重复执行。如果某次处理循环<br>没有再产生任何新的源文件，那么就编译所有源文件。</p>
 <span id="more"></span>
-<h2 id="索引分类"><a href="#索引分类" class="headerlink" title="索引分类"></a>索引分类</h2><h3 id="单值索引"><a href="#单值索引" class="headerlink" title="单值索引"></a>单值索引</h3><p>即一个索引只包含单个例，一个表可以有多个单列索引</p>
-<h3 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h3><p>索引列的值必须唯一，但允许有空值</p>
-<h3 id="复合索引（联合索引）"><a href="#复合索引（联合索引）" class="headerlink" title="复合索引（联合索引）"></a>复合索引（联合索引）</h3><p>即一个索引包含多个列</p>
-<h2 id="索引使用原则"><a href="#索引使用原则" class="headerlink" title="索引使用原则"></a>索引使用原则</h2><ol>
-<li>最左前缀法则：<br>如果索引了多列（复合索引），要遵守最左前缀法则。最左前缀法则指的是查询从索引的最左列开始，并且不跳过索引中的列。如果跳过某一列，索引将部分失效（后面的字段索引失效）。</li>
-<li>范围查询：<br>符合索引中，出现范围查询，范围查询右侧的列索引失效</li>
-<li>索引列运算：<br>不要在索引列上进行运算操作，索引将失效</li>
-<li>字符串不加引号：<br>字符串类型字段使用时，不加引号，索引将失效</li>
-<li>模糊查询：<br>如果仅仅是尾部模糊匹配，索引不会失效。如果是头部模糊匹配，索引失效</li>
-<li>or连接的条件：<br>用or分割开的条件，如果or前的条件中的列有索引，而后面的列中没有索引，那么涉及的索引都不会被用到</li>
-<li>数据分布影响：<br>如果MySql评估使用索引比全表更慢，则不使用索引</li>
-<li>SQL提示：<br>是优化数据库的一个重要手段，简单来说，就是在SQL语句中加入一些人为的提示来达到优化操作的目的。<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use index</span><br><span class="line">ignore index</span><br><span class="line">force index</span><br></pre></td></tr></table></figure>
-9.覆盖索引：<br>尽量使用覆盖索引（查询使用了索引，并且需要返回的列，在该索引中已经全部能够找到，减少<code>select *</code>）<br>也就是说一个二级索引就能返回<br>10.前缀索引<br>当字段类型为字符串（varchar, text等）时，有时候需要索引很长的字符串，这会让索引变得很大，查询时，浪费大量的磁盘IO，影响查询效率。此时可以只将字符串的一部分前缀建立索引，这样可以大大节约索引空间，从而提高索引效率</li>
-</ol>
-
+<p>注解处理器通常通过扩展AbstractProcessor实现Processor接口。你需要指定你的处理器<br>支持的注解，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SupportedAnnotationTypes(&quot;com.example.demo.annotation.ToString&quot;)</span></span><br><span class="line"><span class="meta">@SupportedSourceVersion(SourceVersion.RELEASE_8)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ToStringAnnotationProcessor</span> <span class="keyword">extends</span> <span class="title class_">AbstractProcessor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">process</span><span class="params">(Set&lt;? extends TypeElement&gt; annotations, RoundEnvironment roundEnv)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注解处理器可以声明具体的注解类型或诸如”com.example.demo.annotation.<em>“（com.example.demo.annotation包下的注解）<br>这样的通配符，甚至是”</em>“（所有注解）。</p>
+<p>每一轮process方法都会执行一次，调用时会传递给由这一轮在所有文件中发现的所有注解构成的集，<br>以及包含了有关当前处理轮次的信息的RoundEnvironment引用。</p>
+<h2 id="语言模型API"><a href="#语言模型API" class="headerlink" title="语言模型API"></a>语言模型API</h2><p>语言模型API让我们可以根据Java语言的规则去分析Java程序。<br>这里不讨论，但是我们需要知道它是如何处理注解的。</p>
+<ul>
+<li>RoundEnvironment通过调用下面的方法给你一个特定注解标记过的所有元素构成的集。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;? <span class="keyword">extends</span> <span class="title class_">Element</span>&gt; getElementsAnnotatedWith(Class&lt;? <span class="keyword">extends</span> <span class="title class_">Annotation</span>&gt; a);</span><br></pre></td></tr></table></figure></li>
+<li>在源码级别上等价于AnnotatedElement接口的是AnnotatedConstruct。<br>使用下面的方法就可以获得属于给定注解类的单条注解或重复的注解。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A <span class="title function_">getAnnotation</span><span class="params">(Class&lt;A&gt; annotationType)</span></span><br><span class="line">A[] getAnnotationByType(Class&lt;A&gt; annotationType)</span><br></pre></td></tr></table></figure></li>
+<li>TypeElement表示一个类或接口，而getEnclosedElements方法会产生一个由它的域和方法构成的列表。</li>
+<li>在Element上调用getSimpleName或在TypeElement上调用getQualifiedName会产生一个Name对象，它可以用toString方法转换为一个字符串。</li>
+</ul>
+<h2 id="使用注解来生成源码"><a href="#使用注解来生成源码" class="headerlink" title="使用注解来生成源码"></a>使用注解来生成源码</h2>
     </div>
 
     
@@ -230,8 +228,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/database/" rel="tag"># database</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
           </div>
 
         
@@ -240,12 +237,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/02/04/runtime-data-area/" rel="prev" title="运行时数据区">
-      <i class="fa fa-chevron-left"></i> 运行时数据区
+    <a href="/2023/02/16/concurrency-thread-state/" rel="prev" title="线程状态">
+      <i class="fa fa-chevron-left"></i> 线程状态
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/02/15/hexo-basic-struct/" rel="next" title="hexo-basic-struct">
-      hexo-basic-struct <i class="fa fa-chevron-right"></i>
+    <a href="/2023/02/18/user-interface-component1/" rel="next" title="用户界面组件">
+      用户界面组件 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -305,7 +302,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%88%86%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">索引分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E5%80%BC%E7%B4%A2%E5%BC%95"><span class="nav-number">1.1.</span> <span class="nav-text">单值索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="nav-number">1.2.</span> <span class="nav-text">唯一索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E7%B4%A2%E5%BC%95%EF%BC%88%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">复合索引（联合索引）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">索引使用原则</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">注解处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8BAPI"><span class="nav-number">2.</span> <span class="nav-text">语言模型API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%9D%A5%E7%94%9F%E6%88%90%E6%BA%90%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">使用注解来生成源码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
